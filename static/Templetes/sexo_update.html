@@ -1,0 +1,9 @@
+<h2> Updating sexo: {{data}}</h2>
+
+<form action="{% url 'cor_sexo_update' sexo.id%}" method="POST">
+    {% csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Editar</button>
+</form>
+
+ <a href="{% url 'cor_sexo_delete' sexo.id %}"> <button type="submit">Deletar </button> </a>

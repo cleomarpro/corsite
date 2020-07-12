@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+
+   {% block main%}
+
+
+    <h2 class='teste2'>lista de categoria</h2>
+
+
+    <div class='tabela'>
+     <ul >
+      {%for categoria in categoria%}
+        <li>
+          <a href={% url 'cor_categoria_update' categoria.id %}>{{categoria}} </a>
+        </li>
+       {%endfor%}
+      </ul>
+    </div>
+
+    <form class='din_login' action="{% url 'cor_categoria_novo' %}" method="POST">
+
+        {% csrf_token%}
+        {{form.as_p}}
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+		<th scope="col"> ID</th>
+		<th scope="col"> Nome </th>
+			<th> Categoria </th>
+		<th scope="col"> Código </th>
+		<th scope="col"> Valor Base </th>
+		<th scope="col"> Valor Final</th>
+		<th scope="col"> Estoque</th>
+		<th scope="col"> Detalhes </th>
+     </tr>
+	</thead>
+
+
+    <tbody>
+        {%for produto in produto%}
+        <td> {{produto.id}}</td>
+        <td> <a href={% url 'cor_produto_update' produto.id %}>{{produto.nome}} </a> </td>
+        <td> {{produto.categoria}}</td>
+        <td> {{produto.codigo}}</td>
+        <td> {{produto.valor_base}}</td>
+        <td> {{produto.valor_final}} </td>
+        <td> {{produto.quantidade}} </td>
+        <td> {{produto.detalhe}}</td>
+     </tbody>
+
+
+
+
+
+    {% empty %}
+            <li>Sem itens na lista.</li>
+    {%endfor%}
+
+</table>
+
+{% endblock %}
+
+  <!--"{% url 'cor_cliente_opdade' cliente.id %}"-->

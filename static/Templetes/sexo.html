@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+   {% block main%}
+
+
+    <h2 class='teste2'>lista de sexo</h2>
+
+
+    <div class='tabela'>
+     <ul >
+      {%for sexo in sexo%}
+        <li>
+          <a href={% url 'cor_sexo_update' sexo.id %}>{{sexo}} </a>
+        </li>
+       {%endfor%}
+      </ul>
+    </div>
+
+    <form class='din_login' action="{% url 'cor_sexo_novo' %}" method="POST">
+
+        {% csrf_token%}
+        {{form.as_p}}
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+
+{% endblock %}
+
+  <!--"{% url 'cor_cliente_novo' cliente.id %}"-->

@@ -1,0 +1,9 @@
+<h2> Updating fornecedors: {{data}}</h2>
+
+<form action="{% url 'cor_fornecedor_update' fornecedors.id%}" method="POST">
+    {% csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Editar</button>
+</form>
+
+ <a href="{% url 'cor_fornecedor_delete' fornecedors.id %}"> <button type="submit">Deletar </button> </a>

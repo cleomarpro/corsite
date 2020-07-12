@@ -1,0 +1,9 @@
+<h2> Updating produto: {{data}}</h2>
+
+<form action="{% url 'cor_produto_update' produto.id%}" method="POST">
+    {% csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Editar</button>
+</form>
+
+ <a href="{% url 'cor_produto_delete' produto.id %}"> <button type="submit">Deletar </button> </a>

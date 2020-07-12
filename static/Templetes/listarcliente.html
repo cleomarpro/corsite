@@ -1,0 +1,98 @@
+{% extends 'base.html'%}
+
+   {% block main%}
+
+<deiv>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+       <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="http://cleomarpro.pythonanywhere.com/cor/home/?#">HOME<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gastos diário</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown08">
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listargastos/?#">Listar Gasto diário</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/gastosExrtas/">Novo Gasto diário</a>
+              </li>
+
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Caixa</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown08">
+                  <!-- <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/vendas/?#">Iniciar o caixa </a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarvendas/?#">Listar Vendas</a> -->
+                  <a class="dropdown-item" href="#">Feichar o caixa </a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cliente</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown08">
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarcliente/?#">ListarClientes</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/cliente/">Novo Cliente</a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="http://cleomarpro.pythonanywhere.com/cor/produto/?#">Mais<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Ajuda<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Sair<span class="sr-only">(current)</span></a>
+              </li>
+
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<p>
+
+</p>
+
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+		<th> ID</th>
+		<th> Nome </th>
+		<th> Endereço </th>
+		<th> Telefone </th>
+		<th> Data de Nascimento </th>
+		<th> E-mail </th>
+		<th> CPF </th>
+		<th> Sexo </th>
+     </tr>
+	</thead
+
+
+    <tbody>
+      {%for cliente in cliente %}
+          <td> {{cliente.id}} </td>
+          <td> <a href={% url 'cor_cliente_update' cliente.id %}>{{cliente.nome}} </a> </td>
+          <td> {{cliente.endereco}} </td>
+          <td> {{cliente.telefone}} </td>
+          <td> {{cliente.data_de_Nacimento}}</td>
+          <td> {{cliente.email}} </td>
+          <td> {{cliente.CPF}} </td>
+          <td> {{cliente.sexo}} </td>
+    </tbody>
+    {% empty %}
+            <li>Sem itens na lista.</li>
+    {%endfor%}
+</table>
+</div>
+
+{% endblock %}
