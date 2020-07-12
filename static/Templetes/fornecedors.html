@@ -62,17 +62,47 @@
 
 <!-- CDASTRO  DE PRODUTOS -->
 
-<div class= 'div_form'>
-      <form class='formulario' action="{% url 'cor_fornecedor_novo' %}" method="POST">
-      <h2 class='titulo_h2'>Novo Fornecedor</h2>
+    <div class= 'div_form'>
+          <form class='formulario' action="{% url 'cor_fornecedor_novo' %}" method="POST">
+          <h2 class='titulo_h2'>Novo Fornecedor</h2>
 
-        {% csrf_token%}
-        {{form.as_p}}
+            {% csrf_token%}
+            {{form.as_p}}
 
-        <button class='btCadastrar' type="submit">Cadastrar</button>
-    </form>
+            <button class='btCadastrar' type="submit">Cadastrar</button>
+        </form>
 
-</div>
+    </div>
+
+    <div class="divTb">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+            		<th> ID</th>
+            		<th> Nome </th>
+            		<th> Endereço </th>
+            		<th> Telefone </th>
+            		<th> E-mail </th>
+            		<th> CNPJ</th>
+                 </tr>
+
+        	</thead>
+
+            <tbody>
+              {%for fornecedors in fornecedors %}
+                  <td> {{fornecedors.id}} </td>
+                  <td> <a href={% url 'cor_fornecedor_update' fornecedors.id %}>{{fornecedors.nome}} </a> </td>
+                  <td> {{fornecedors.endereco}} </td>
+                  <td> {{fornecedors.telefone}} </td>
+                  <td> {{fornecedors.email}} </td>
+                  <td> {{fornecedors.cnpj}} </td>
+
+            </tbody>
+            {% empty %}
+                    <li>Sem itens na lista.</li>
+            {%endfor%}
+        </table>
+    </div>
 
 </div>
 

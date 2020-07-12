@@ -20,7 +20,7 @@
                 <a class="nav-link" href="http://cleomarpro.pythonanywhere.com/cor/home/?#"> VOLTAR <span class="sr-only">(current)</span></a>
               </li>
 
-              <li class="nav-item dropdown">
+                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relátorio</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown08">
                   <a class="dropdown-item" href="#">Vendas</a>
@@ -29,19 +29,11 @@
                   <a class="dropdown-item" href="#">Contas a receber</a>
               </li>
 
-               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Novo</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown08">
-                 <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/produto/?#">Novo Produto</a>
-                 <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/fornecedors/?#">Novo Fornecedor</a>
-                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/entradamercadoria/?">Entrada de Mercadoria</a>
-             </li>
-
-              <li class="nav-item dropdown">
+             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown08">
-                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarprodutos/?#">Listar Produtos</a>
-                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarfornecedor/?#">Listar Fornecedor</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarprodutos/?#">Produtos</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarfornecedor/?#">Fornecedor</a>
                   <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarentradamercadoria/?#">Entrada de Mercadoria</a>
               </li>
 
@@ -61,53 +53,54 @@
     </ul>
   </div>
 </nav>
-<p>
 
-</p>
+            <p>
+
+            </p>
     <div>
         <li>
             <a  class="BtNovo"  href="http://cleomarpro.pythonanywhere.com/cor/produto/?#">Novo Produto</a>
         </li>
     </div>
-<p>
+            <p>
 
-</p>
+            </p>
 <!-- tabela -->
-
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-		<th scope="black"> ID</th>
-		<th scope="col"> Nome </th>
-	    <th scope="col"> Categoria </th>
-		<th scope="col"> Código </th>
-		<th scope="col"> Valor </th>
-		<th scope="col"> Estoque</th>
-     </tr>
-	</thead>
-
-
-    <tbody>
-        {%for produto in produto%}
-        <td> {{produto.id}}</td>
-        <td> <a href={% url 'cor_produto_update' produto.id %}>{{produto.nome}} </a> </td>
-        <td> {{produto.categoria}}</td>
-        <td> {{produto.codigo}}</td>
-        <td> {{produto.valor}}</td>
-        <td> {{produto.estoque}} </td>
-
-     </tbody>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+            		<th scope="black"> ID</th>
+            		<th scope="col"> Nome </th>
+            	    <th scope="col"> Categoria </th>
+            		<th scope="col"> Código </th>
+            		<th scope="col"> Valor </th>
+            		<th scope="col"> Estoque</th>
+                 </tr>
+        	</thead>
 
 
+            <tbody>
+                {%for produto in produto%}
+                <td> {{produto.id}}</td>
+                <td> <a href={% url 'cor_produto_update' produto.id %}>{{produto.nome}} </a> </td>
+                <td> {{produto.categoria}}</td>
+                <td> {{produto.codigo}}</td>
+                <td> {{produto.valor}}</td>
+                <td> {{produto.estoque}} </td>
+
+             </tbody>
 
 
 
-    {% empty %}
-            <li>Sem itens na lista.</li>
-    {%endfor%}
 
-</table>
 
+                    {% empty %}
+                            <li>Sem itens na lista.</li>
+                    {%endfor%}
+
+        </table>
+    </div>
 </div>
 
 {% endblock %}

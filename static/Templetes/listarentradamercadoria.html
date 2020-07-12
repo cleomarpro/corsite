@@ -20,7 +20,7 @@
                 <a class="nav-link" href="http://cleomarpro.pythonanywhere.com/cor/home/?#"> VOLTAR <span class="sr-only">(current)</span></a>
               </li>
 
-              <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Relátorio</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown08">
                   <a class="dropdown-item" href="#">Vendas</a>
@@ -40,10 +40,11 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listar</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown08">
-                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarprodutos/?#">Listar Produtos</a>
-                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarfornecedor/?#">Listar Fornecedor</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarprodutos/?#">Produtos</a>
+                  <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarfornecedor/?#">Fornecedor</a>
                   <a class="dropdown-item" href="http://cleomarpro.pythonanywhere.com/cor/listarentradamercadoria/?#">Entrada de Mercadoria</a>
               </li>
+
 
 
                    <li class="nav-item active">
@@ -67,34 +68,35 @@
 
 
 <!-- tabela -->
+    <div class= 'divTb'></div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+            		<th> ID</th>
+            		<th> Produto </th>
+            		<th> Fornecedor </th>
+            		<th> Valor </th>
+            		<th> Quantidade </th>
+            		<th> Data Hora</th>
+                 </tr>
+        	</thead>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-		<th> ID</th>
-		<th> Produto </th>
-		<th> Fornecedor </th>
-		<th> Valor </th>
-		<th> Quantidade </th>
-		<th> Data Hora</th>
-     </tr>
-	</thead
 
+            <tbody>
+                 {%for entradamercadoria in entradamercadoria %}
+                  <td> {{fornecedors.id}} </td>
+                  <td> <a href={% url 'cor_entradamercadoria_update' entradamercadoria.id %}>{{entradamercadoria.produto}} </a> </td>
+                  <td> {{entradamercadoria.fornecedor}} </td>
+                  <td> {{entradamercadoria.valor}} </td>
+                  <td> {{entradamercadoria.quantidade}} </td>
+                  <td> {{entradamercadoria.dataHora}} </td>
 
-    <tbody>
-      {%for entradamercadoria in entradamercadoria %}
-          <td> {{fornecedors.id}} </td>
-          <td> <a href={% url 'cor_entradamercadoria_update' entradamercadoria.id %}>{{entradamercadoria.produto}} </a> </td>
-          <td> {{entradamercadoria.fornecedor}} </td>
-          <td> {{entradamercadoria.valor}} </td>
-          <td> {{entradamercadoria.quantidade}} </td>
-          <td> {{entradamercadoria.dataHora}} </td>
-
-    </tbody>
-    {% empty %}
-            <li>Sem itens na lista.</li>
-    {%endfor%}
-</table>
+            </tbody>
+                {% empty %}
+                        <li>Sem itens na lista.</li>
+                {%endfor%}
+      </table>
+    </div>
 </div>
 
 {% endblock %}
