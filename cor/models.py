@@ -61,7 +61,10 @@ class Produto (models.Model):
     estoque = models.CharField(max_length=12,  blank=True)
 
     def __str__(self): # METODO CONSTRUTOR
-       return str(self.nome) + ' - ' + str(self.codigo)
+       return str(self.nome) + ' - ' + str(self.codigo)+ ' - ' + str(self.estoque)
+
+    def ValorEstoque(self, quantidade):
+        self.estoque + quantidade
 
 
 class Vendas (models.Model):
@@ -83,7 +86,6 @@ class EntradaMercadoria(models.Model):
 
     def __str__(self):# METODO CONSTRUTOR
        return str(self.produto.nome) + ' - ' + str(self.produto.codigo) + ' - ' + str(self.valor)+ ' - ' + str(self.dataHora)
-
 
 class GastosExrtas (models.Model):
     descricao = models.TextField()

@@ -26,14 +26,15 @@
 }
 
 .divTb{
-   margin-left: 5px;
-   float: left;
-   position:relative;
+   margin-top: 5px;
+
+   height:380px;
+   overflow: scroll;
 
 }
 
 .divFo{
-    margin-left: 5px;
+   margin-left: 5px;
    float: left;
    position:relative;
 

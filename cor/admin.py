@@ -13,6 +13,7 @@ from .models import(
 
 )
 
+
 '''class ClienteFs(admin.ModelAdmin):
     list_display=( 'nome', 'endereco','email', 'telefone')
 
@@ -37,6 +38,7 @@ admin.site.register(fornecedor)
 admin.site.register(pessoaFisica)
 admin.site.register(pesoaJuridica)
 
-
+# search_fields =('GastosExrtas',)
+ #list_filter= ('GastosExrtas',)
 
 
