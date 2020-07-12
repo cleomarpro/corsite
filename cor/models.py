@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 #from datetime import tade
 #import math
 
@@ -96,8 +97,15 @@ class GastosExrtas (models.Model):
     def __str__(self):# METODO CONSTRUTOR
        return str(self.valor) + ' - ' + str(self.descricao)
 
+class Caixa (models.Model):
+    produto = models.ForeignKey(Produto, verbose_name='Produto', on_delete=models.CASCADE, default=1)
+    quantidade = models.CharField(max_length=12,  blank=True, null= False, verbose_name = 'Quantidade')
+    valor = models.DecimalField(max_digits=9, decimal_places= 2)
+    dataHora = models.DateTimeField(auto_now = True )
+    usuario = models.ForeignKey(User, on_delete= models.CASCADE)
 
-
+    class Meta:
+        db_table = 'caixa'
 
 '''
 

@@ -1,4 +1,5 @@
 from django.contrib import admin
+#from core.models import Caixa
 from .models import(
    Sexo,
    Produto,
@@ -9,23 +10,18 @@ from .models import(
    EntradaMercadoria,
    fornecedor,
    pessoaFisica,
-   pesoaJuridica
-
+   pesoaJuridica,
+   Caixa
 )
 
 
-'''class ClienteFs(admin.ModelAdmin):
-    list_display=( 'nome', 'endereco','email', 'telefone')
+class CaixaAdmin(admin.ModelAdmin):
+    list_display=( 'produto', 'quantidade','valor')
+
+    search_fields =('produto',)
+    list_filter= ('produto',)
 
 
-class estoque(admin.ModelAdmin):
-    list_display=( 'nome', 'codigo','estoque')
-
-    def veiculo(self, obj):
-        return obj.nome    '''
-
-'''class MovMensalistaAdmin(admin.ModelAdmin):
-    list_display=( 'mensalista','dataPaga', 'total')'''
 
 admin.site.register(Sexo)
 admin.site.register(Produto)
@@ -37,6 +33,7 @@ admin.site.register(EntradaMercadoria)
 admin.site.register(fornecedor)
 admin.site.register(pessoaFisica)
 admin.site.register(pesoaJuridica)
+admin.site.register(Caixa, CaixaAdmin)
 
 # search_fields =('GastosExrtas',)
  #list_filter= ('GastosExrtas',)
