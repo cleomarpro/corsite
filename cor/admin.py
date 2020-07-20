@@ -18,6 +18,9 @@ from .models import(
 class CaixaAdmin(admin.ModelAdmin):
     list_display=( 'produto', 'quantidade','valor')
 
+    def calculo(self, obj):
+        return (self.Produto.estoque + EntradaMercadoria.quantidade)
+
     search_fields =('produto',)
     list_filter= ('produto',)
 

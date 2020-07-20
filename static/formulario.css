@@ -5,13 +5,15 @@
 @import url('https://fonts.googleapis.com/css?family=Courier+Prime&display=swap');
 
 
-
+#clorir{
+    background-color: #ADD8E6!important;
+}
 
 
 .titulo_h2{
   background-color: #303131;
   color:white;
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Philosopher',  sans-serif;
   font-size: 18px;
   border: 1px solid #303131;
   border-radius: 5px;
@@ -26,10 +28,13 @@
 }
 
 .divTb{
+   background-color: #D3D3D3;
+   text-align: center;
    margin-top: 5px;
-
-   height:380px;
+   width: 80%;
+   height:800px;
    overflow: scroll;
+   margin: 50px auto 10px auto;
 
 }
 
@@ -39,17 +44,19 @@
    position:relative;
 
 
+
+
 }
 
 .formulario{
    font-family: 'Inria Serif', serif;
    width: 350px;
-   background-color: #808080;
+   background-color: #D3D3D3;
    margin: 10px auto 10px auto;
    padding: 10px;
    border: 1px solid #353636;
    border-radius: 10px;
-    height:380px;
+   height:380px;
    overflow: scroll;
 
 }
